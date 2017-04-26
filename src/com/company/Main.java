@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+* OS    : Windows 10 Pro 64bit
+* CPU   : Intel(R) Core(TM) i3-6100 CPU @ 3.70Hz 3.70GHz
+* Tool  : IntelliJ IDEA 2016.3.6
+* */
+
 public class Main {
 
     public static void main(String[] args) {
