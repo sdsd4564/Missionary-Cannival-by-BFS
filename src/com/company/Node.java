@@ -20,7 +20,7 @@ public class Node {
 
     // 노드 출력용
     void PrintNode() {
-        System.out.println(leftMissionary + "," + leftCannibal + "," + rightMissionary + "," + rightCannibal + "," + boat);
+        System.out.print("(" + leftMissionary + "," + leftCannibal + "," + rightMissionary + "," + rightCannibal + "," + boat + ")");
     }
 
     // HashCode 수정, HashSet 사용을 위해 HashCode를 선교사와 식인종, 배 위치 값으로 참조
@@ -39,7 +39,7 @@ public class Node {
         if (obj == null) return false;
         if (this == obj) return true;
         if (getClass() != obj.getClass()) return false;
-        Node other = (Node)obj;
+        Node other = (Node) obj;
         if (this.rightCannibal == other.rightCannibal && this.rightMissionary == other.rightMissionary &&
                 this.leftMissionary == other.leftMissionary && this.leftCannibal == other.leftCannibal && this.boat == other.boat)
             return true;

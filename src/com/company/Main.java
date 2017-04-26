@@ -13,7 +13,8 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
-        Queue<Node> mQueue = new LinkedList<>();
+        int depth = -1;                                 // 깊이 확인
+        Queue<Node> mQueue = new LinkedList<>();        // 사용할 큐(Queue)
         HashSet<Node> checked = new HashSet<>();        // 중복확인용 HashSet, 체크를 위해 노드 클래스에 HashCode와 equal 메소드 오버라이드
 
         Node IS = new Node(3, 3, 0, 0, 0, null);        // 초기상태(Initial State)
@@ -27,10 +28,14 @@ public class Main {
 
             if (CS.equals(GS)) {
                 //목표를 찾았다면 목표의 부모노드를 통해 경로 출력
-                while (!(CS == null)) {
+                while (CS != null) {
                     CS.PrintNode();
+                    if (CS.parentNode != null)
+                        System.out.print(" <- ");
                     CS = CS.parentNode;
+                    depth++;
                 }
+                System.out.println("\n* 깊이 : " + depth);
                 break;
             }
 
@@ -54,7 +59,8 @@ public class Main {
                         mQueue.add(new Node(CS.leftMissionary, CS.leftCannibal - 1, CS.rightMissionary, CS.rightCannibal + 1, 1, CS));
                     }
                     if (CS.leftCannibal > 0 && CS.leftMissionary > 0)
-                        mQueue.add(new Node(CS.leftMissionary - 1, CS.leftCannibal - 1, CS.rightMissionary + 1, CS.rightCannibal + 1, 1, CS));
+                        mQueue.add(new Node(CS.leftMissionary - 1, CS.leftCannibal - 1,
+                                CS.rightMissionary + 1, CS.rightCannibal + 1, 1, CS));
 
                 } else {
                     /*
@@ -75,7 +81,8 @@ public class Main {
                     }
 
                     if (CS.rightCannibal > 0 && CS.rightMissionary > 0)
-                        mQueue.add(new Node(CS.leftMissionary + 1, CS.leftCannibal + 1, CS.rightMissionary - 1, CS.rightCannibal - 1, 0, CS));
+                        mQueue.add(new Node(CS.leftMissionary + 1, CS.leftCannibal + 1,
+                                CS.rightMissionary - 1, CS.rightCannibal - 1, 0, CS));
 
                 }
                 // 중복확인을 위해 HashSet에 값 추가
