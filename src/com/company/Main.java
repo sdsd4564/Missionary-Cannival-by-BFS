@@ -30,12 +30,11 @@ public class Main {
                 //목표를 찾았다면 목표의 부모노드를 통해 경로 출력
                 while (CS != null) {
                     CS.PrintNode();
-                    if (CS.parentNode != null)
-                        System.out.print(" <- ");
+                    if (CS.parentNode != null) System.out.print("\n\t↑\n");
                     CS = CS.parentNode;
                     depth++;
                 }
-                System.out.println("\n* 깊이 : " + depth);
+                System.out.print("\n* 깊이 : " + depth);
                 break;
             }
 
