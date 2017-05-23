@@ -113,6 +113,8 @@ public class Main extends Application {
         final int HEIGHT_SIZE = 900;
         ImageView empty = new ImageView();
 
+
+
         Queue<ImageView> leftMissionary = new LinkedList<>();
         Queue<ImageView> leftCannibal = new LinkedList<>();
         Queue<ImageView> rightMissionary = new LinkedList<>();
@@ -270,6 +272,11 @@ public class Main extends Application {
         stage.setScene(new Scene(sp));
 
         stage.show();
+        Alert jobDone = new Alert(Alert.AlertType.INFORMATION);
+        jobDone.setTitle("안내");
+        jobDone.setContentText("마우스를 클릭할 떄 마다 진행됩니다.");
+        jobDone.setHeaderText(null);
+        jobDone.show();
     }
 
     private void setPosition(ImageView iv, double x, double y) {
