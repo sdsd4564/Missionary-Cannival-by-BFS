@@ -1,21 +1,21 @@
 package com.company;
 
 
-public class Node {
+public class SearchNode {
     int leftMissionary;
     int leftCannibal;
     int rightMissionary;
     int rightCannibal;
     int boat;
-    Node parentNode;
+    SearchNode parentSearchNode;
 
-    Node(int leftMissionary, int leftCannibal, int rightMissionary, int rightCannibal, int boat, Node parentNode) {
+    SearchNode(int leftMissionary, int leftCannibal, int rightMissionary, int rightCannibal, int boat, SearchNode parentSearchNode) {
         this.leftMissionary = leftMissionary;
         this.leftCannibal = leftCannibal;
         this.rightMissionary = rightMissionary;
         this.rightCannibal = rightCannibal;
         this.boat = boat;
-        this.parentNode = parentNode;
+        this.parentSearchNode = parentSearchNode;
     }
 
     // 노드 출력용
@@ -39,7 +39,7 @@ public class Node {
         if (obj == null) return false;
         if (this == obj) return true;
         if (getClass() != obj.getClass()) return false;
-        Node other = (Node) obj;
+        SearchNode other = (SearchNode) obj;
         if (this.rightCannibal == other.rightCannibal && this.rightMissionary == other.rightMissionary &&
                 this.leftMissionary == other.leftMissionary && this.leftCannibal == other.leftCannibal && this.boat == other.boat)
             return true;
